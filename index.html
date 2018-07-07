@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+  <style type="text/css">
+    * { margin: 0px; padding: 0px; }
+    canvas {
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+<script type="text/javascript">
+
+var w = 40;
+var h = 40;
+
+var direction = 40;
+
+function setup(){
+  createCanvas(320, 500);
+  // createCanvas(windowWidth, windowHeight);
+  background(0, 0, 0);
+  stroke('black');
+  strokeWeight(1);
+}
+
+function draw() {
+
+  blockI(w, h, direction);
+  // blockJ();
+  // blockL();
+  // blockO();
+  // blockT();
+  // blockZ();
+
+  if( h < 460 ){
+    h = h+1;
+  }else{
+    h = 460;
+  }
+  // console.log(h);
+  // line(0, y, width, y);
+}
+
+
+function blockI(w, h, drection){
+  console.log(h);
+  fill('#ed1e23');
+  rect(w+direction, h, 40, 40);
+  rect((w*2)+direction, h, 40, 40);
+  rect((w*3)+direction, h, 40, 40);
+  rect((w*4)+direction, h, 40, 40);
+}
+
+function blockJ(){
+  fill('#be32ba');
+  rect(300, 40, 40, 40);
+  rect(340, 40, 40, 40);
+  rect(380, 40, 40, 40);
+  rect(380, 80, 40, 40);
+}
+
+function blockL(){
+  fill('#f9e83c');
+  rect(500, 40, 40, 40);
+  rect(540, 40, 40, 40);
+  rect(540, 80, 40, 40);
+  rect(540, 120, 40, 40);
+}
+
+function blockO(){
+  fill('#2fca24');
+  rect(40, 200, 40, 40);
+  rect(80, 200, 40, 40);
+  rect(40, 240, 40, 40);
+  rect(80, 240, 40, 40);
+}
+
+function blockT(){
+  fill('#1a7dcd');
+  rect(300, 200, 40, 40);
+  rect(300, 240, 40, 40);
+  rect(260, 240, 40, 40);
+  rect(340, 240, 40, 40);
+}
+
+function blockZ(){
+  fill('#62d3e2');
+  rect(550, 200, 40, 40);
+  rect(590, 200, 40, 40);
+  rect(550, 240, 40, 40);
+  rect(510, 240, 40, 40);
+}
+
+
+function keyPressed(e) {
+  switch(keyCode){
+    case 32 :
+      // spacebar
+      // 밑으로 끝까지 떨어지기
+      console.log(e.location);
+      h = 460;
+      console.log('아래로떨어지기');
+      break;
+    case 37 :
+      if(direction >= -35){
+        direction = direction-40;
+      }
+
+      console.log('왼쪽');
+      break;
+    case 39 :
+      if(direction < 100){
+        direction = direction+40;
+      }
+
+      console.log('오른쪽');
+      break;
+    case 40 :
+      // 한칸 떨어지기
+      console.log('아래')
+      break;
+    case 38 :
+      // 블록 방향전환.
+      console.log('위');
+      break;
+  }
+  return false; // prevent default
+}
+
+
+
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
+
+
+
+</script>
+</body>
+</html>
